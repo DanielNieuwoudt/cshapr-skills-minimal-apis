@@ -6,5 +6,5 @@ public interface IBookService
 {
     List<Book> GetBooks();
         
-    Book GetBook(int id);
+    Book? GetBook(int id);
 }

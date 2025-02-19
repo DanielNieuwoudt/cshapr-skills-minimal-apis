@@ -1,0 +1,6 @@
+@skills_minimal_apis_HostAddress = https://localhost:7083
+
+GET {{skills_minimal_apis_HostAddress}}/books/
+Accept: application/json
+
+###

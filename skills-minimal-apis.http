@@ -1,6 +1,0 @@
-@skills_minimal_apis_HostAddress = http://localhost:5115
-
-GET {{skills_minimal_apis_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
