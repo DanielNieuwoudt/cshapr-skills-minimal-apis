@@ -1,12 +1,14 @@
+using Carter;
 using Microsoft.OpenApi.Models;
 using MinimalApis.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IBookService, BookService>();
-
+builder.Services.AddCarter();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IBookService, BookService>();
 
 var app = builder.Build();
 
@@ -18,16 +20,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/books", (IBookService bookService) => TypedResults.Ok(bookService.GetBooks()))
-    .WithName("GetBooks")
-    .WithOpenApi(x => new OpenApiOperation(x)
-    {
-        Summary = "Get Library Books",
-        Description = "Returns information about all the available books from the library.",
-        Tags = new List<OpenApiTag>
-        {
-            new() { Name = "Library" }
-        }
-    });
+app.MapCarter();
 
 await app.RunAsync();

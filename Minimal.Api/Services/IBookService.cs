@@ -4,7 +4,7 @@ namespace MinimalApis.Services;
 
 public interface IBookService
 {
-    List<Book> GetBooks();
+    IReadOnlyCollection<Book> GetBooks();
         
     Book? GetBook(int id);
 }

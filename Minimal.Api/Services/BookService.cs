@@ -35,7 +35,7 @@ namespace MinimalApis.Services
             }
         ];
 
-        public List<Book> GetBooks()
+        public IReadOnlyCollection<Book> GetBooks()
         {
             return _books;
         }

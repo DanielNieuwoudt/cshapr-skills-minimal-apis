@@ -1,0 +1,8 @@
+services:
+  minimal.api:
+    image: ${DOCKER_REGISTRY-}minimalapi
+    build:
+      context: .
+      dockerfile: Minimal.Api/Dockerfile
+    ports:
+      - "8081:8081"  # Maps host port 8081 to container port 8081
